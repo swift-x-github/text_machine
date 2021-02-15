@@ -1,0 +1,4 @@
+= scaffold TODO
+
+- Check for presence of modules before creation
+- Tests

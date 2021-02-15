@@ -1,0 +1,41 @@
+
+  <div class="bg-dark collapse" id="navbarHeader" style="">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-white">Анализатор текста </h4>
+          <p class="text-muted">Простой и надежный анализатор читабильности текста.</p>
+        </div>
+        <div class="col-sm-4 offset-md-1 py-4">
+          <% if reader_signed_in? %>
+          <h4 class="text-white">Личный кабинет</h4>
+          <% end %>
+          <% if admin_signed_in? %>
+          <h4 class="text-white">Админка</h4>
+           <% end %>
+          <ul class="list-unstyled">
+                   <li> <%= link_to 'Главная', root_path %></li>
+              <% if reader_signed_in? %>
+              
+                    <li> <%= link_to 'Добавить текст', new_text_path %></li>
+                    <li> <%= link_to 'Мои тексты', texts_path %></li>
+                    <li> <%= link_to 'Выход Читатель', destroy_reader_session_path %></li>
+              <% end %>
+              <% if admin_signed_in? %>
+                     <li> <%= link_to 'Все Читатели', readers_index_path %></li>
+                      <li> <%= link_to 'Все Тексты', texts_path %></li>
+                    <li> <%= link_to 'Выход Админ', destroy_admin_session_path %></li>
+              <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container">
+     
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>

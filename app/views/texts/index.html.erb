@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+<div class = "container">
+
+<div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+        <div class="bg-light shadow-sm mx-auto" style="width: 80%; border-radius: 21px 21px 0 0;">
+        <table class = "table">
+          <thead>
+            <tr>
+              <th>Автор </th>
+              <th>Текст </th>
+              <th>Читабельность</th>
+              <th>Флеш-индекс</th>
+              <th>Индекс скорочтения</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody>
+          <% #will_paginate @texts  %>
+         
+            <% @texts.each do |text| %>
+              <tr>
+               <td><%= text.reader_id %></td>
+                <td><%= text.description.truncate(25) %></td>
+                <td><%= text.readability_index %></td>
+                <td><%= text.flesh_index %></td>
+                <td><%= text.speed_index %></td>
+                <td><%= link_to 'Show', text %></td>
+                <td><%= link_to 'Edit', edit_text_path(text) %></td>
+                <td><%= link_to 'Destroy', text, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+
+           
+          </tbody>
+        </table>
+    </div>
+    </div>
+<br>
+</div>

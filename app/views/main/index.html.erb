@@ -1,0 +1,29 @@
+
+    <% if reader_signed_in? %>
+      <main class="px-3">
+        <h1>Добро пожаловать в личный кабинет.</h1>
+        <p class="lead">
+          <%= link_to 'Добавить текст', new_text_path, class: 'btn btn-lg btn-secondary fw-bold border-white bg-black'  %> 
+          <%= link_to 'Мои тексты', texts_path, class: 'btn btn-lg btn-secondary fw-bold border-white bg-black'  %> 
+        </p>
+      </main>
+    <% elsif admin_signed_in? %>
+      <main class="px-3">
+        <h1>Добро пожаловать в админпанель .</h1>
+        <p class="lead">
+          <%= link_to 'Тексты', texts_path, class: 'btn btn-lg btn-secondary fw-bold border-white bg-black'  %> 
+          <%= link_to 'Пользователи', readers_index_path, class: 'btn btn-lg btn-secondary fw-bold border-white bg-black'  %> 
+        </p>
+      </main>
+    <% else %>
+      <main class="px-3">
+        <h1>Анализатор текста.</h1>
+        <p class="lead"> Функциональный сервис проверки читабельности текста</p>
+        <p class="lead"> English, Українська, Русский</p>
+        <p class="lead">
+          <%= link_to 'Войти как Читатель', new_reader_session_path, class: 'btn btn-lg btn-secondary fw-bold border-white bg-black'  %> 
+          <%= link_to 'Войти как Админ', new_admin_session_path, class: 'btn btn-lg btn-secondary fw-bold border-white bg-black'  %> 
+        </p>
+      </main>
+    <% end %>
+    

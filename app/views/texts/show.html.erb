@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+<div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center  overflow-hidden">
+      <div class="my-3 py-3">
+      <%= link_to 'Edit', edit_text_path(@text) %> | <%= link_to 'Back', texts_path%>
+        <h5 class="display-5">Readability index:</h5>
+        <p class="lead"><%= @text.readability_index %></p>
+      </div>
+      <div class="my-3 py-3">
+        <h5 class="display-5">Flesh index:</h5>
+        <p class="lead"><%= @text.flesh_index %></p>
+      </div>
+      <div class="my-3 py-3">
+        <h5 class="display-5">Speed index:</h5>
+        <p class="lead"><%= @text.speed_index %></p>
+      </div>
+
+<p>
+  <strong>Description:</strong>
+  <%= @text.description %>
+</p>
+
+    </div>
